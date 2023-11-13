@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('collections', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->string('title');
+            $table->string('slug')->unique();
+            $table->json('description')->nullable();
+            $table->enum('topics', ['Books', 'Signs', 'Silverware', 'Coins']);
+            $table->string('img_path')->nullable();
             $table->timestamps();
         });
     }

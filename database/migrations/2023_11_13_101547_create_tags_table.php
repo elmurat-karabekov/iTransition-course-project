@@ -13,7 +13,14 @@ return new class extends Migration
     {
         Schema::create('tags', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->timestamps();
+        });
+
+        Schema::create('item_tag', function (Blueprint $table) {
+            $table->foreignId('item_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('tag_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->primary(['item_id', 'tag_id']);
         });
     }
 
@@ -22,6 +29,7 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::dropIfExists('item_tag');
         Schema::dropIfExists('tags');
     }
 };
