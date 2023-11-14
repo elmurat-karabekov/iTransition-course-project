@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->json('description')->nullable();
-            $table->enum('topics', ['Books', 'Signs', 'Silverware', 'Coins']);
+            $table->foreignId('topic_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('img_path')->nullable();
             $table->timestamps();
         });
