@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Item;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +19,9 @@ class CommentFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'user_id' => fake()->randomElement(User::pluck('id')->toArray()),
+            'item_id' => fake()->randomElement(Item::pluck('id')->toArray()),
+            'body' => json_encode(fake()->realText()),
         ];
     }
 }
