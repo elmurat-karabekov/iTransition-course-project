@@ -37,7 +37,7 @@ class CollectionSchema extends Schema
             ID::make('id'),
             BelongsTo::make('user'),
             BelongsTo::make('topic'),
-            HasMany::make('items'),
+            HasMany::make('items')->canCount(),
             Str::make('title')->sortable(),
             Str::make('slug')->readOnly(), 
             Str::make('description'), 
