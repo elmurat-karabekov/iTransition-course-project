@@ -7,6 +7,8 @@ use App\Models\Item;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
@@ -23,5 +25,12 @@ class UserSeeder extends Seeder
                     Item::factory(rand(1, 30))->create(['collection_id' => $collection->id]);
                 });
         });
+
+        DB::table('users')->insert([
+            'name' => 'elmurat',
+            'email'=> 'elmu0209@gmail.com',
+            'password' => Hash::make('password'),
+            'is_admin' => true,
+        ]);
     }
 }
