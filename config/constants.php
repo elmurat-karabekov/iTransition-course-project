@@ -17,5 +17,6 @@ return [
         'Post stamps',
         'Baseball cards',
         'Sneakers',
+        'Other',
     ],
 ];

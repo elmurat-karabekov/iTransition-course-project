@@ -20,7 +20,7 @@ class CollectionFactory extends Factory
     {
         return [
             'title' => fake()->word(),
-            'description' => json_encode(fake()->realText()),
+            'description' => fake()->realText(),
             'topic_id' => fake()->randomElement(Topic::pluck('id')->toArray()),
             'img_path' => fake()->randomElement(Config::get('constants.fake_img_paths'))
         ];

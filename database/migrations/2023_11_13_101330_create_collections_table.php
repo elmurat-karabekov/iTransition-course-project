@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('title');
             $table->string('slug')->unique();
-            $table->json('description')->nullable();
+            $table->text('description')->nullable();
             $table->foreignId('topic_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('img_path')->nullable();
             $table->timestamps();
